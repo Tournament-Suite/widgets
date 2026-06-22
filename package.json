@@ -1,0 +1,20 @@
+{
+  "name": "@tournamentsuite/widgets",
+  "version": "1.0.0",
+  "description": "Embeddable live tournament widgets for bracket, leaderboard, registration, and schedule",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "src/"
+  ],
+  "keywords": [
+    "tournament",
+    "esports",
+    "bracket",
+    "widget"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tournament-Suite/widgets.git"
+  }
+}
