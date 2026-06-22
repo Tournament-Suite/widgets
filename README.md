@@ -16,6 +16,8 @@ Embeddable live tournament widgets for any website. Drop in a script tag — no 
 ></div>
 ```
 
+> **Note:** The CDN is provisioned alongside the live API. For npm usage: `npm install @tournamentsuite/widgets`
+
 ## Widgets
 
 ### Live Bracket
@@ -109,19 +111,45 @@ TournamentSuite.on('match:completed', (event) => {
 });
 ```
 
+## npm / ESM
+
+Install via npm:
+
+```bash
+npm install @tournamentsuite/widgets
+```
+
+> **Note:** The CDN is provisioned alongside the live API. For npm usage: `npm install @tournamentsuite/widgets`
+
+```ts
+import { mountBracket, mountLeaderboard, mountRegistration, mountSchedule } from '@tournamentsuite/widgets';
+
+// Mount a bracket
+await mountBracket('#bracket', { tournamentId: 'TOURNAMENT_ID', apiKey: 'PUBLIC_API_KEY', theme: 'dark' });
+
+// Mount a leaderboard
+await mountLeaderboard('#leaderboard', { resourceId: 'TOURNAMENT_ID', apiKey: 'PUBLIC_API_KEY', limit: 10 });
+
+// Mount a registration form
+await mountRegistration('#registration', { tournamentId: 'TOURNAMENT_ID', apiKey: 'PUBLIC_API_KEY' });
+
+// Mount a match schedule
+await mountSchedule('#schedule', { tournamentId: 'TOURNAMENT_ID', apiKey: 'PUBLIC_API_KEY' });
+```
+
 ## React
 
 ```tsx
-import { TsBracket, TsLeaderboard } from '@tournamentsuite/widgets-react';
+import { useEffect, useRef } from 'react';
+import { mountBracket, unmountBracket } from '@tournamentsuite/widgets';
 
-function MyPage() {
-  return (
-    <TsBracket
-      tournamentId="TOURNAMENT_ID"
-      apiKey="PUBLIC_API_KEY"
-      theme="dark"
-    />
-  );
+function BracketWidget({ tournamentId, apiKey }: { tournamentId: string; apiKey: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (ref.current) mountBracket(ref.current, { tournamentId, apiKey });
+    return () => { if (ref.current) unmountBracket(ref.current); };
+  }, [tournamentId, apiKey]);
+  return <div ref={ref} />;
 }
 ```
 

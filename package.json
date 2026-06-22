@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "description": "Embeddable live tournament widgets for bracket, leaderboard, registration, and schedule",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
+    "dist/",
     "src/"
   ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --target es2020"
+  },
   "keywords": [
     "tournament",
     "esports",
@@ -16,5 +22,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Tournament-Suite/widgets.git"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
   }
 }
