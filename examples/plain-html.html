@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournament Suite Widgets Demo</title>
+  <script src="https://cdn.tournamentsuite.com/widgets/v1/ts-widgets.js"></script>
+  <style>
+    :root {
+      --ts-color-primary: #7c3aed;
+      --ts-color-bg: #0f0f0f;
+      --ts-color-surface: #1a1a1a;
+      --ts-color-text: #f5f5f5;
+      --ts-color-border: #2a2a2a;
+      --ts-border-radius: 8px;
+    }
+    body { background: #0f0f0f; color: #f5f5f5; font-family: sans-serif; padding: 2rem; }
+    h2 { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>My Esports Tournament</h1>
+
+  <h2>Live Bracket</h2>
+  <div
+    data-ts-widget="bracket"
+    data-ts-tournament="YOUR_TOURNAMENT_ID"
+    data-ts-key="YOUR_PUBLIC_API_KEY"
+    data-ts-theme="dark"
+  ></div>
+
+  <h2>Standings</h2>
+  <div
+    data-ts-widget="leaderboard"
+    data-ts-tournament="YOUR_TOURNAMENT_ID"
+    data-ts-key="YOUR_PUBLIC_API_KEY"
+    data-ts-limit="8"
+  ></div>
+
+  <h2>Register</h2>
+  <div
+    data-ts-widget="registration"
+    data-ts-tournament="YOUR_TOURNAMENT_ID"
+    data-ts-key="YOUR_PUBLIC_API_KEY"
+  ></div>
+
+  <h2>Schedule</h2>
+  <div
+    data-ts-widget="schedule"
+    data-ts-tournament="YOUR_TOURNAMENT_ID"
+    data-ts-key="YOUR_PUBLIC_API_KEY"
+  ></div>
+</body>
+</html>
