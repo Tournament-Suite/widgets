@@ -4,7 +4,7 @@
   "description": "Embeddable live tournament widgets for bracket, leaderboard, registration, and schedule",
   "license": "MIT",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
